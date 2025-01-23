@@ -5,6 +5,8 @@
 
 import SwiftUI
 
+//TODO: Import this package: https://github.com/twostraws/CodeScanner
+
 struct HomePage: View {
     var body: some View {
         VStack {
@@ -15,6 +17,18 @@ struct HomePage: View {
         }
         .padding()
     }
+    
+//TODO: Uncomment This Function When Implementing QR Code Scanning.
+  /* func handleScan(result: Result<ScanResult, ScanError>) {
+       showScanner = false
+        switch result {
+        case .success(let result):
+            navigateToOrderingPage = true
+            
+        case .failure(let error):
+            print("Scanning failed: \(error.localizedDescription)")
+        }
+    }*/
 }
 
 struct ScanQrCodeButton: View {
