@@ -26,12 +26,12 @@ struct HomePage: View {
                         Text("Memorial Union")
                             .font(.largeTitle)
                             .fontWeight(.bold)
-                    }
+                    } //end of inner VStack
                     
                     TruckLocationView()
                     TodaysMenuView()
                     
-                }
+                } //end of outer VStack
             }
             .sheet(isPresented: $showScanner) {
                 CodeScannerView(codeTypes: [.qr], simulatedData: "ABCDE", completion: handleScan)
@@ -44,6 +44,14 @@ struct HomePage: View {
         }
         
     }
+    
+    //Returns what day today is.
+    func getTodayWeekDay() -> String {
+           let dateFormatter = DateFormatter()
+           dateFormatter.dateFormat = "EEEE"
+           let weekDay = dateFormatter.string(from: Date())
+           return weekDay
+     }
     
     func handleScan(result: Result<ScanResult, ScanError>) {
        showScanner = false
@@ -70,6 +78,7 @@ struct ScanQrCodeButton: View {
     }
 }
 
+//TODO: Remove hardedcoded values.
 struct TruckLocationView: View {
     var body: some View {
         Map {
@@ -80,13 +89,14 @@ struct TruckLocationView: View {
     }
 }
 
+//TODO: Use updated MenuOptionsView
 struct TodaysMenuView: View {
     var body: some View {
         VStack(alignment: .leading) {
             Text("What's On The Menu?")
                 .font(.title)
                 .fontWeight(.bold)
-            MenuOptionsView()
+            //Add updated MenuOptionsView here!
         }
     }
 }
