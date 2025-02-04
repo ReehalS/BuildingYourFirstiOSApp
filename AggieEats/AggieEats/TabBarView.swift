@@ -8,10 +8,11 @@ import SwiftUI
 struct TabBarView: View {
     var body: some View {
         TabView {
-            Tab("Today", systemImage: "house"){
+            Tab("Today", systemImage: "house") {
                 HomePage()
             }
-            Tab("Weekly Menu", systemImage: "menucard"){
+            
+            Tab("Weekly Menu", systemImage: "menucard") {
                 WeeklyMenuView()
             }
         }

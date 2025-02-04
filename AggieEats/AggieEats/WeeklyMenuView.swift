@@ -6,33 +6,19 @@
 import SwiftUI
 
 struct WeeklyMenuView: View {
+    
     var body: some View {
         ScrollView {
-            VStack(alignment: .leading, spacing: 20){
-                Text("Monday")
-                    .font(.title2)
+            VStack(alignment: .leading) {
+                Text("Weekly Menu")
+                    .font(.largeTitle)
                     .fontWeight(.bold)
-                MenuOptionsView()
-                Text("Tuesday")
-                    .font(.title2)
-                    .fontWeight(.bold)
-                MenuOptionsView()
-                Text("Wednesday")
-                    .font(.title2)
-                    .fontWeight(.bold)
-                MenuOptionsView()
-                Text("Thursday")
-                    .font(.title2)
-                    .fontWeight(.bold)
-                MenuOptionsView()
-                Text("Friday")
-                    .font(.title2)
-                    .fontWeight(.bold)
-                MenuOptionsView()
-            }.padding()
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
-            
+                    .padding(.bottom)
+                //TODO: Integrate JSON data into the weekly menu.
+            }
         }
+        .padding()
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
 }
 

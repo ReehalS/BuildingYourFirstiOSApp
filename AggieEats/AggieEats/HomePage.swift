@@ -5,44 +5,56 @@
 
 import SwiftUI
 import MapKit
-
-//TODO: Import this package: https://github.com/twostraws/CodeScanner
+import CodeScanner
 
 struct HomePage: View {
-    @State var showScanner: Bool = false
-    @State var navigateToOrderingPage: Bool = false
+    @State var showScanner = false
+    @State var navigateToOrderingPage = false
     
     var body: some View {
-        ScrollView{
-            VStack(alignment: .leading) {
+        NavigationStack {
+            ScrollView {
                 VStack(alignment: .leading) {
-                    HStack {
-                        Text("Today's Location")
-                            .font(.title)
+                    VStack(alignment: .leading) {
+                        HStack {
+                            Text("Today's Location")
+                                .font(.title2)
+                                .fontWeight(.bold)
+                            Spacer()
+                            ScanQrCodeButton(showScanner: $showScanner)
+                        }
+                        Text("Memorial Union")
+                            .font(.largeTitle)
                             .fontWeight(.bold)
-                        Spacer()
-                        ScanQrCodeButton(showScanner: $showScanner)
-                    }
-                    Spacer()
-                    Text("Memorial Union").font(.largeTitle).fontWeight(.bold)
-                } // inner vstack
-                
-                TruckLocationView()
-                TodaysMenuView()
-                
-            } // outer vstack
-        } // scroll view end
-        .sheet(isPresented: $showScanner) {
-            CodeScannerView(codeTypes: [.qr],
-                            simulatedData: "ABCDE", completion: handleScan)
-        })
-        .padding()
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    } //end of inner VStack
+                    
+                    TruckLocationView()
+                    TodaysMenuView()
+                    
+                } //end of outer VStack
+            }
+            .sheet(isPresented: $showScanner) {
+                CodeScannerView(codeTypes: [.qr], simulatedData: "ABCDE", completion: handleScan)
+            }
+            .navigationDestination(isPresented: $navigateToOrderingPage) {
+                ConfirmOrderView()
+            }
+            .padding()
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+        }
+        
     }
     
-//TODO: Uncomment This Function When Implementing QR Code Scanning.
+    //Returns what day today is.
+    func getTodayWeekDay() -> String {
+           let dateFormatter = DateFormatter()
+           dateFormatter.dateFormat = "EEEE"
+           let weekDay = dateFormatter.string(from: Date())
+           return weekDay
+     }
+    
     func handleScan(result: Result<ScanResult, ScanError>) {
-        showScanner = false
+       showScanner = false
         switch result {
         case .success(let result):
             navigateToOrderingPage = true
@@ -53,12 +65,12 @@ struct HomePage: View {
     }
 }
 
+
 struct ScanQrCodeButton: View {
     @Binding var showScanner: Bool
     var body: some View {
         Button {
-            // Implement Later
-            showScanner=true
+            showScanner = true
         } label: {
             Image(systemName: "camera")
                 .imageScale(.large)
@@ -66,30 +78,28 @@ struct ScanQrCodeButton: View {
     }
 }
 
+//TODO: Remove hardedcoded values.
 struct TruckLocationView: View {
     var body: some View {
-        // Latitude 38.54141
-        // Longitude: -121.74845
         Map {
-            Marker("MU", coordinate:  CLLocationCoordinate2D(latitude: 38.54141, longitude: -121.74845))
+            Marker("MU", coordinate: CLLocationCoordinate2D(latitude: 38.54141, longitude: -121.74845))
         }
         .frame(width: 370, height: 400)
         .padding(.bottom)
     }
 }
 
+//TODO: Use updated MenuOptionsView
 struct TodaysMenuView: View {
     var body: some View {
         VStack(alignment: .leading) {
             Text("What's On The Menu?")
                 .font(.title)
                 .fontWeight(.bold)
-            MenuOptionsView()
-            
+            //Add updated MenuOptionsView here!
         }
     }
 }
-
 
 
 #Preview {

@@ -6,42 +6,43 @@
 import SwiftUI
 
 struct MenuOptionsView: View {
+    //@State var menuItems: OrderedDictionary<String, [String]>
+    
     var body: some View {
-        ZStack(alignment: .leading) {
-            RoundedRectangle(cornerRadius: 10)
-                .fill(Color("Menu Options Color"))
-                .frame(height: 100)
-                //.padding(EdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 10))
-            VStack(alignment: .leading) {
-                Text("Chicken Bowl")
-                    .font(.title3)
-                    .fontWeight(.semibold)
-                    .padding(.leading, 20)
-                Text("Out of Stock")
-                    .fontWeight(.medium)
-                    .foregroundStyle(.red)
-                    .padding(.leading, 20)
-            }
-        }
-        ZStack(alignment: .leading) {
-            RoundedRectangle(cornerRadius: 10)
-                .fill(Color("Menu Options Color"))
-                .frame(height: 100)
-                //.padding(EdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 10))
-            VStack(alignment: .leading) {
-                Text("Hummus & Cucumber Sandwich")
-                    .font(.title3)
-                    .fontWeight(.semibold)
-                    .padding(.leading, 20)
-                Text("Limited Availability")
-                    .fontWeight(.medium)
-                    .foregroundStyle(.purple)
-                    .padding(.leading, 20)
-            }
-        }
+        EmptyView()
+        
+        //TODO: Uncomment the code below.
+        /*ForEach(menuItems.keys, id: \.self) { key in
+            ZStack(alignment: .leading) {
+                RoundedRectangle(cornerRadius: 10)
+                    .fill(Color("Menu Options Color"))
+                    .frame(height: 130)
+                VStack(alignment: .leading) {
+                    //TODO: Add showFoodAvailability and AllergensView subviews.
+                }
+                .padding(.leading)
+                    
+                }
+                
+            }*/
+            
     }
 }
 
-#Preview {
-    MenuOptionsView()
+struct showFoodAvailability: View {
+    var body: some View {
+        EmptyView()
+    }
 }
+
+struct AllergensView: View {
+    @State var allergens: [String]
+    var body: some View {
+        VStack(alignment: .leading) {
+            HStack {
+
+            } //end of outer HStack
+        } //end of VStack
+    }
+}
+

@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A3BC63232D48834200899752 /* CodeScanner in Frameworks */ = {isa = PBXBuildFile; productRef = A3BC63222D48834200899752 /* CodeScanner */; };
+		AB266CD02D4882EB00CA7642 /* CodeScanner in Frameworks */ = {isa = PBXBuildFile; productRef = AB266CCF2D4882EB00CA7642 /* CodeScanner */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,7 +27,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A3BC63232D48834200899752 /* CodeScanner in Frameworks */,
+				AB266CD02D4882EB00CA7642 /* CodeScanner in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,7 +70,7 @@
 			);
 			name = AggieEats;
 			packageProductDependencies = (
-				A3BC63222D48834200899752 /* CodeScanner */,
+				AB266CCF2D4882EB00CA7642 /* CodeScanner */,
 			);
 			productName = AggieEats;
 			productReference = ABD5A29A2D273109001521B5 /* AggieEats.app */;
@@ -101,7 +101,7 @@
 			mainGroup = ABD5A2912D273109001521B5;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				A3BC63212D48834200899752 /* XCRemoteSwiftPackageReference "CodeScanner" */,
+				AB266CCE2D4882EB00CA7642 /* XCRemoteSwiftPackageReference "CodeScanner" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = ABD5A29B2D273109001521B5 /* Products */;
@@ -333,7 +333,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		A3BC63212D48834200899752 /* XCRemoteSwiftPackageReference "CodeScanner" */ = {
+		AB266CCE2D4882EB00CA7642 /* XCRemoteSwiftPackageReference "CodeScanner" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/twostraws/CodeScanner";
 			requirement = {
@@ -344,9 +344,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		A3BC63222D48834200899752 /* CodeScanner */ = {
+		AB266CCF2D4882EB00CA7642 /* CodeScanner */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = A3BC63212D48834200899752 /* XCRemoteSwiftPackageReference "CodeScanner" */;
+			package = AB266CCE2D4882EB00CA7642 /* XCRemoteSwiftPackageReference "CodeScanner" */;
 			productName = CodeScanner;
 		};
 /* End XCSwiftPackageProductDependency section */
